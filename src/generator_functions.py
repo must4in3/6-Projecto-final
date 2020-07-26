@@ -3,6 +3,7 @@ from IPython import display
 
 OUTPUT_CHANNELS = 3
 LAMBDA = 100
+loss_object = tf.keras.losses.BinaryCrossentropy(from_logits=True)
 
 def downsample(filters, size, apply_batchnorm=True):
     '''

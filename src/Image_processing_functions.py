@@ -1,8 +1,11 @@
 import tensorflow as tf
 import os
 import time
+import cv2 
+import numpy as np
 from matplotlib import pyplot as plt
 from IPython import display
+from PIL import Image
 
 BUFFER_SIZE = 400
 BATCH_SIZE = 1
@@ -105,3 +108,39 @@ def load_image_test(image_file):
     input_image, real_image = normalize(input_image, real_image)
 
     return input_image, real_image
+
+
+def get_concat_h(im1, im2):
+    '''
+    This function merge the original photo with the new mask
+    '''
+    dst = Image.new('RGB', (im1.width + im2.width, im1.height))
+    dst.paste(im1, (0, 0))
+    dst.paste(im2, (im1.width, 0))
+    return dst
+
+
+def rename_photo_in_folder(path):
+    '''
+    this function allow you to rename every files in a specific folder
+    '''
+    files = os.listdir(path)
+    for index, file in enumerate(files):
+        os.rename(os.path.join(path, file), os.path.join(path, ''.join([str(index), '.jpg'])))
+
+
+def create_draw_edge_mask(path, destination, number_files, mask ='edge'):
+    '''
+    This function allow you to create for every photo in the folder a mask, and the n concatenate each other
+    '''
+    for i in range(number_files-1):
+        img = cv2.imread(path+f'/{i+1}.jpg')[:,:,::-1]
+        if mask == 'edge':
+            edges = cv2.Canny(img,100,200)
+        else:
+            kernelx = np.array([[1,0,-1],[1,0,-1],[1,0,-1]])
+            edges = cv2.filter2D(img,cv2.CV_8U,kernelx)    
+        PIL_image = Image.fromarray(np.uint8(img)).convert('RGB')
+        PIL_image2 = Image.fromarray(np.uint8(edges)).convert('RGB')
+        img_concat = get_concat_h(PIL_image, PIL_image2)
+        img_concat.save(destination+f'/{i+1}.png')

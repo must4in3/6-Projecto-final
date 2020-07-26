@@ -132,3 +132,8 @@ arcDataset
 images
 Project.odt
 model.png
+logs
+save
+training_checkpoints
+labels_map.txt
+demo.onnx

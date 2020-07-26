@@ -1,5 +1,7 @@
 import tensorflow as tf
-from src.generator_functions import downsample, upsample
+from src.generator_functions import downsample, upsample, generator_loss
+
+loss_object = tf.keras.losses.BinaryCrossentropy(from_logits=True)
 
 def Discriminator():
     '''
@@ -42,3 +44,23 @@ def Discriminator():
                                 kernel_initializer=initializer)(zero_pad2) # (bs, 30, 30, 1)
 
     return tf.keras.Model(inputs=[inp, tar], outputs=last)
+
+
+def discriminator_loss(disc_real_output, disc_generated_output):
+    '''
+    The discriminator loss function takes 2 inputs; real images, generated images
+    real_loss is a sigmoid cross entropy loss of the real images and an array of ones(since these are the real images)
+    generated_loss is a sigmoid cross entropy loss of the generated images and an array of zeros(since these are the fake images)
+    Then the total_loss is the sum of real_loss and the generated_loss
+    P.S. I call this function in the father function train_step()
+    '''
+    # real_loss is a sigmoid cross entropy loss of the real images 
+    #and an array of ones(since these are the real images)
+    real_loss = loss_object(tf.ones_like(disc_real_output), disc_real_output)
+    # generated_loss is a sigmoid cross entropy loss of the generated 
+    #images and an array of zeros(since these are the fake images)
+    generated_loss = loss_object(tf.zeros_like(disc_generated_output), disc_generated_output)
+    #  total_loss is the sum of real_loss and the generated_loss
+    total_disc_loss = real_loss + generated_loss
+
+    return total_disc_loss
