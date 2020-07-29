@@ -29,7 +29,7 @@ def downsample(filters, size, apply_batchnorm=True):
     # use_bias = Boolean, whether the layer uses a bias vector.
     result.add(
       tf.keras.layers.Conv2D(filters, size, strides=2, padding='same',
-                             kernel_initializer=initializer, use_bias=False))
+                             kernel_initializer=initializer, use_bias=True))
 
     if apply_batchnorm:
         # BatchNormalization = Normalize and scale inputs or activations. 
@@ -62,12 +62,12 @@ def upsample(filters, size, apply_dropout=False):
     tf.keras.layers.Conv2DTranspose(filters, size, strides=2,
                                     padding='same',
                                     kernel_initializer=initializer,
-                                    use_bias=False))
+                                    use_bias=True))
     # BatchNormalization = Normalize and scale inputs or activations
     result.add(tf.keras.layers.BatchNormalization())
     # Applies Dropout to the input.
     if apply_dropout:
-        result.add(tf.keras.layers.Dropout(0.5))
+        result.add(tf.keras.layers.Dropout(0.3))
     # Rectified Linear Unit activation function.
     result.add(tf.keras.layers.ReLU())
 
@@ -86,7 +86,7 @@ def Generator():
     inputs = tf.keras.layers.Input(shape=[256,256,3])
     # signa el valor de las dimensiones de output entre parentesis
     down_stack = [
-        downsample(64, 4, apply_batchnorm=False), # (bs, 128, 128, 64)
+        downsample(64, 4, apply_batchnorm=True), # (bs, 128, 128, 64)
         downsample(128, 4), # (bs, 64, 64, 128)
         downsample(256, 4), # (bs, 32, 32, 256)
         downsample(512, 4), # (bs, 16, 16, 512)

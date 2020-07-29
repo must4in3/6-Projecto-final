@@ -23,7 +23,7 @@ def Discriminator():
     # concatenar la imagen de input(parecida a mascara) con la imagen target (palacio original) 
     x = tf.keras.layers.concatenate([inp, tar]) # (bs, 256, 256, channels*2)
     # 3 convolucíones 2D
-    down1 = downsample(64, 4, False)(x) # (bs, 128, 128, 64)
+    down1 = downsample(64, 4, True)(x) # (bs, 128, 128, 64)
     down2 = downsample(128, 4)(down1) # (bs, 64, 64, 128)
     down3 = downsample(256, 4)(down2) # (bs, 32, 32, 256)
     # This layer can add rows and columns of zeros at the top, bottom, left and right side of an image tensor.
@@ -31,7 +31,7 @@ def Discriminator():
     # otra convolucíon 2D
     conv = tf.keras.layers.Conv2D(512, 4, strides=1,
                                 kernel_initializer=initializer,
-                                use_bias=False)(zero_pad1) # (bs, 31, 31, 512)
+                                use_bias=True)(zero_pad1) # (bs, 31, 31, 512)
     # BatchNormalization = Normalize and scale inputs or activations. 
     batchnorm1 = tf.keras.layers.BatchNormalization()(conv)
     # Leaky version of a Rectified Linear Unit.
