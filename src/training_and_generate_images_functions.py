@@ -67,7 +67,7 @@ def train_step(input_image, target, epoch, generator, discriminator, generator_o
         tf.summary.scalar('disc_loss', disc_loss, step=epoch)
 
 
-def fit(train_ds, epochs, test_ds, generator, discriminator, generator_optimizer, discriminator_optimizer, summary_writer):
+def fit(train_ds, epochs, test_ds, generator, discriminator, generator_optimizer, discriminator_optimizer, summary_writer, checkpoint):
     '''
     The actual training loop:
     Iterates over the number of epochs.
