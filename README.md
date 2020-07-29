@@ -1,7 +1,8 @@
-# 6-Image Inpainting for Urban Buildings
+# 6-GAN generator for Urban Buildings
+<p align="center">
 
 ![Alt Text](https://j.gifs.com/Jyw6QD.gif)
-
+</p>
 
 <br>
 
