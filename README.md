@@ -1,10 +1,8 @@
 # 6-Image Inpainting for Urban Buildings
 
-<p align="center">
-<video width="320" height="240" controls>
-  <source src="inputs/images/video" type="video/mp4">
-</video>
-</p>
+![Alt Text](https://j.gifs.com/Jyw6QD.gif)
+
+
 <br>
 
 # Project Goals
