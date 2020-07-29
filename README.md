@@ -2,7 +2,7 @@
 
 <p align="center">
 <video width="320" height="240" controls>
-  <source src="inputs/images/video.mp4" type="video/mp4">
+  <source src="inputs/images/video" type="video/mp4">
 </video>
 </p>
 <br>
