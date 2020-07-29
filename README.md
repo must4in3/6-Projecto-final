@@ -7,9 +7,11 @@
 <br>
 
 # Project Goals
-The goal of this project is to generate, through the use of a Generative Adversarial Network (or GAN), an output image of a building, *translating* the input image that is provided to it, be it photo or sketches.<br>
-Starting from an **automatically generated edge mask**, the pix2pix model used works by training on pairs of images, learning to return an artistic representation of the reality.<br>
-It is possible to divide the training of the network with images of different architectural styles, in order to obtain various simulations of the same object.<br>
+
+The goal of this project is to generate, through the use of a Generative Adversarial Network (or GAN), an output image of a building, translating the input image entered, heither photos or sketches.<br>
+Starting from an **automatically generated edge mask**, the pix2pix model works by training on pairs of images, learning to generate an artistic representation of the reality.<br>
+Various simulation of the same object can be obtained by training the network with images of different architecture style.<br>
+
 ​<br>
 
 # How does pix2pix Network work?
