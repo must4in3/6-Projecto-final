@@ -30,7 +30,7 @@ source: https://datacarpentry.org/image-processing/08-edge-detection/<br>
 
 The idea behind the project is to train our GAN with photos of buildings and their respective edge masks, which can be created from any photo that makes up our dataset.<br>
 <p align="center">
-<img src="inputs/images/ejemplo_photo+mask.png" | width=300>
+<img src="inputs/images/ejemplo_photo+mask.png" | width=500>
 </p>
 The advantage of this method is that it will allow us to **make predictions even with simple drawings**, as this mask can also be obtained from those.<br>
 
@@ -47,13 +47,13 @@ If we are interested in the number, size, shape, or relative location of objects
 In the present work different tests have been made, changing different paremeters in the generator and in the discriminator to evaluate how it varied according to the loss function. <br>
 In the tests, the same sample of 200 photos was chosen, and then applied to a dataset of 1000 photos for the final workout.
 <p align="center">
-<img src="inputs/images/gen_total_loss.svg" | width=200>
+<img src="inputs/images/gen_total_loss.svg" | width=300>
 </p>
 
 Another parameter that must be taken into account is that neither the generator nor the discriminator must dominate one another, at least for most of the training
 <p align="center">
-<img src="inputs/images/gen_gan_loss.svg" | width=200>
-<img src="inputs/images/disc_loss.svg" | width=200>
+<img src="inputs/images/gen_gan_loss.svg" | width=300>
+<img src="inputs/images/disc_loss.svg" | width=300>
 </p>
 Different dropout levels, batch normalization and activation functions (Leaky ReLU, ReLU, Softmax) have been evaluated.<br>
 <br>
