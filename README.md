@@ -1,8 +1,7 @@
 # 6-GAN generator for Urban Buildings
-<p align="center">
 
-![Alt Text](https://j.gifs.com/Jyw6QD.gif)
-</p>
+![Alt Text](https://j.gifs.com/Jyw6QD.gif#center)
+
 
 <br>
 
