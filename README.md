@@ -1,8 +1,10 @@
 # 6-Image Inpainting for Urban Buildings
 
-
-<img src="inputs/diamante-grezzo.jpg">
-<br>
+<p align="center">
+<video width="320" height="240" controls>
+  <source src="inputs/images/video.mp" type="video/mp4">
+</video>
+</p>
 <br>
 
 # Project Goals
