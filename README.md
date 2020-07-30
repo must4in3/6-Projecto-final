@@ -41,7 +41,10 @@ In edge detection, we find the boundaries or edges of objects in an image, by de
 Edge detection can be used to extract the structure of objects in an image. <br>
 If we are interested in the number, size, shape, or relative location of objects in an image, edge detection allows us to focus on the parts of the image most helpful, while ignoring parts of the image that will not help us.
 <p align="center">
-<img src="inputs/images/ejemplo predicted.png">
+<img src="outputs/output1.png">
+<img src="outputs/output3.png">
+<img src="outputs/output9.png">
+<img src="outputs/output13.png">
 </p>
 <br>
 
