@@ -45,7 +45,7 @@ If we are interested in the number, size, shape, or relative location of objects
 <img src="outputs/output3.png">
 <img src="outputs/output9.png">
 <img src="outputs/output13.png">
-<img src="inputs/images/ejemplo predicted.png" | width=500>
+<img src="inputs/images/ejemplo predicted.png" | width=600>
 
 </p>
 <br>
